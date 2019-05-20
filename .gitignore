@@ -7,3 +7,7 @@ __pycache__/
 
 # virtualenv folder
 venv/
+
+
+# other
+local_tmp/
