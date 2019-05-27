@@ -1,0 +1,16 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <form>
+      <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" class="form-control" id="email">
+      </div>
+      <div class="form-group"> <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd"> </div>
+      <div class="form-group"> <label for="timestamps">Keystrokes:</label>
+          <textarea readonly type="text" class="form-control" id="timestamps"></textarea>
+      </div>
+  </form>
+{% endblock %}
