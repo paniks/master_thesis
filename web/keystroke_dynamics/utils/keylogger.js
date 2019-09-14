@@ -1,11 +1,8 @@
-var outputField = document.getElementById("timestamps")
 var agregatedData = [];
 function logKeyEvent(){
     var now = new Date()
     entry = {"sourceid": event.srcElement.attributes.id.nodeValue, "type": event.type, "time": now.getTime(),
              "key": event.key};
-    outputField.value += JSON.stringify(entry) + "\n";
-    outputField.scrollTop = outputField.scrollHeight;
     agregatedData.push(entry)
 }
 

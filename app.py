@@ -1,5 +1,11 @@
+import os
 import json
+import pandas as pd
 from flask import Flask, render_template, redirect, request
+
+from utils.keystroke_dynamics import log_values
+from utils.path_utlis import project_root
+
 
 project = 'keystroke_dynamics'
 
@@ -13,8 +19,15 @@ def index():
 
 @app.route("/save", methods=["POST", "GET"])
 def save():
-    data = request.form['strikes']
-    json_list = json.loads(data)
+
+    # get data
+    response = request.form['strikes']
+    data = pd.DataFrame(json.loads(response))
+
+    # save data to json
+    json_handler = open(os.path.join(project_root(), 'local_tmp', 'file.json'), 'r+')
+    log_values(data, json_handler)
+
     return redirect('/')
 
 
