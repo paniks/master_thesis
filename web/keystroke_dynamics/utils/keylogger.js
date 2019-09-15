@@ -15,7 +15,11 @@ $( "#login" ).submit(function( event ) {
   $.post(url, data, function(data, status){
     console.log(`response status:  ${status}`)
     $("#login")[0].reset()
+    resetAgregator()
   })
   event.preventDefault();
 });
 
+function resetAgregator(){
+    agregatedData = [];
+}
