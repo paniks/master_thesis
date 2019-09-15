@@ -12,8 +12,7 @@ def log_values(data: pd.DataFrame, json_handler: _io.TextIOWrapper):
     log_file = json.load(json_handler)
     grouped_data = group_data_by_sourceid(data)
 
-    indices_len = len(list(log_file.keys()))
-    element_idx = indices_len + 1 if indices_len != 0 else 0
+    element_idx = len(list(log_file.keys()))
 
     log_file.update({f'record_{element_idx}': {'email': grouped_data['email'].to_dict(orient='list'),
                                                'pwd': grouped_data['pwd'].to_dict(orient='list')}})
